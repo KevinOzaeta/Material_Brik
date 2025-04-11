@@ -20,6 +20,7 @@ foreign key (CODIGO_TARIMA) REFERENCES TARIMA(CODIGO_TARIMA)
 );
 use envasado_brik;
 insert into pedido values (default,89,default);
+insert into pedido values (default,90,default);
 select r.nombre_producto,t.tipo_tarima,t.presentacion_producto,count(r.nombre_producto) from pedido p join tarima t on(p.codigo_tarima)=(t.codigo_tarima) join producto r on(t.codigo_producto)=(r.codigo_producto) group by r.nombre_producto order by 4 asc;
 select codigo_tarima, tipo_tarima,presentacion_producto, count(codigo_tarima) from pedido join tarima using(codigo_tarima) group by codigo_tarima, tipo_tarima,presentacion_producto;
 select distinct nombre_producto from pedido join tarima using(codigo_tarima) join producto using(codigo_producto);
